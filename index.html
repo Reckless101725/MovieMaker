@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background-elements">
+            <div class="cmd-console" id="cmd-console"></div>
+            <div class="data-stream" id="data-stream-1"></div>
+            <div class="data-stream" id="data-stream-2"></div>
+            <div class="data-blocks">
+                <div class="data-block"></div>
+                <div class="data-block"></div>
+                <div class="data-block"></div>
+                <div class="data-block"></div>
+                <div class="data-block"></div>
+            </div>
+        </div>
+
+        <header>
+            <div class="top-bar">
+                <div class="logo">STARK INDUSTRIES</div>
+                <div class="navigation">
+                    <span class="nav-item active">DASHBOARD</span>
+                    <span class="nav-item">SYSTEMS</span>
+                    <span class="nav-item">ANALYTICS</span>
+                    <span class="nav-item">CONTROL</span>
+                    <span class="nav-item">SECURITY</span>
+                </div>
+                <div class="status">
+                    <div class="status-item" id="jarvis-status">JARVIS OS ACTIVE</div>
+                    <div class="status-item" id="current-time">2025-05-26 14:09:36</div>
+                </div>
+            </div>
+            <div class="voice-wave">
+                <div class="wave-container">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                <div class="jarvis-listening">JARVIS AWAITING INSTRUCTIONS</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="left-panel">
+                <div class="panel-item scanning-panel">
+                    <h3>SYSTEM DIAGNOSTICS</h3>
+                    <div class="resource-bar">
+                        <div class="resource-label">CPU</div>
+                        <div class="resource-progress">
+                            <div class="progress-fill" id="cpu-bar"></div>
+                        </div>
+                        <div class="resource-value" id="cpu-value">65%</div>
+                    </div>
+                    <div class="resource-bar">
+                        <div class="resource-label">RAM</div>
+                        <div class="resource-progress">
+                            <div class="progress-fill" id="ram-bar"></div>
+                        </div>
+                        <div class="resource-value" id="ram-value">42%</div>
+                    </div>
+                    <div class="resource-bar">
+                        <div class="resource-label">DISK</div>
+                        <div class="resource-progress">
+                            <div class="progress-fill" id="disk-bar"></div>
+                        </div>
+                        <div class="resource-value" id="disk-value">78%</div>
+                    </div>
+                    <div class="scan-effect"></div>
+                </div>
+                
+                <div class="panel-item">
+                    <h3>NETWORK ACTIVITY</h3>
+                    <canvas id="network-chart"></canvas>
+                    <div class="network-stats">
+                        <div class="stat">
+                            <span class="stat-label">PACKETS/SEC:</span>
+                            <span class="stat-value" id="packets-stat">1,458</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">BANDWIDTH:</span>
+                            <span class="stat-value" id="bandwidth-stat">24.7 MB/s</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel-item">
+                    <h3>ACTIVE PROTOCOLS</h3>
+                    <ul class="protocols-list">
+                        <li>SSH: <span class="active-status">ACTIVE <span class="blink-dot">•</span></span></li>
+                        <li>HTTPS: <span class="active-status">ACTIVE <span class="blink-dot">•</span></span></li>
+                        <li>FTP: <span class="inactive-status">INACTIVE</span></li>
+                        <li>VPN: <span class="active-status">ACTIVE <span class="blink-dot">•</span></span></li>
+                    </ul>
+                    <div class="code-scroll" id="protocol-code">
+                        <div>Initiating secure connection...</div>
+                        <div>SSH handshake completed</div>
+                        <div>Authentication successful</div>
+                        <div>Protocol encryption: AES-256-GCM</div>
+                        <div>Channel established on port 22</div>
+                        <div>Traffic forwarding enabled</div>
+                        <div>Remote host identified</div>
+                        <div>Connection verified</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-panel">
+                <div class="jarvis-greeting" id="jarvis-greeting">
+                    <div class="greeting-text">Good afternoon, Reckless101725</div>
+                    <div class="greeting-subtext">All systems operational</div>
+                </div>
+                
+                <div class="reactor-container">
+                    <div class="reactor-ring outer-ring"></div>
+                    <div class="reactor-ring middle-ring"></div>
+                    <div class="reactor-core">
+                        <div class="core-inner">
+                            <div class="core-triangle"></div>
+                            <div class="core-glow"></div>
+                        </div>
+                    </div>
+                    <div class="reactor-data">
+                        <div class="data-item" id="power-output">POWER OUTPUT: 98.7%</div>
+                        <div class="data-item" id="core-stability">CORE STABILITY: <span class="stability-value">OPTIMAL</span></div>
+                        <div class="data-item">CORE TEMP: <span id="temp-value">30°C</span></div>
+                    </div>
+                    <div class="scan-line"></div>
+                    <div class="reactor-circles">
+                        <div class="reactor-circle"></div>
+                        <div class="reactor-circle"></div>
+                        <div class="reactor-circle"></div>
+                    </div>
+                </div>
+                
+                <div class="holographic-display">
+                    <div class="holo-header">SYSTEM ANALYTICS</div>
+                    <div class="holo-content">
+                        <div class="holo-item">
+                            <div class="holo-chart">
+                                <div class="chart-bar" style="height:60%"></div>
+                                <div class="chart-bar" style="height:80%"></div>
+                                <div class="chart-bar" style="height:40%"></div>
+                                <div class="chart-bar" style="height:70%"></div>
+                                <div class="chart-bar" style="height:90%"></div>
+                                <div class="chart-bar" style="height:50%"></div>
+                                <div class="chart-bar" style="height:65%"></div>
+                            </div>
+                            <div class="holo-label">PROCESSING</div>
+                        </div>
+                        <div class="holo-item">
+                            <div class="circular-progress">
+                                <svg viewBox="0 0 100 100">
+                                    <circle class="progress-bg" cx="50" cy="50" r="40"></circle>
+                                    <circle class="progress-fill" cx="50" cy="50" r="40"></circle>
+                                </svg>
+                                <div class="progress-text">76%</div>
+                            </div>
+                            <div class="holo-label">COMPLETION</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="system-status">
+                    <div class="status-ring">
+                        <div class="status-segment"></div>
+                        <div class="status-segment"></div>
+                        <div class="status-segment"></div>
+                        <div class="status-segment"></div>
+                        <div class="status-segment"></div>
+                        <div class="status-segment"></div>
+                    </div>
+                    <div class="time-display-container">
+                        <div class="time-display" id="digital-time">14:09:36</div>
+                        <div class="date-display" id="digital-date">2025-05-26</div>
+                    </div>
+                </div>
+                
+                <div class="floating-commands">
+                    <div class="command">Run system diagnostic</div>
+                    <div class="command">Deploy suit Mark VII</div>
+                    <div class="command">Analyze meteorological data</div>
+                    <div class="command">Secure perimeter</div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="panel-item notification-panel">
+                    <h3>SYSTEM NOTIFICATIONS</h3>
+                    <ul class="notifications-list" id="notifications-list">
+                        <li><span class="notification-time">14:02</span> System update available</li>
+                        <li><span class="notification-time">13:47</span> Security scan completed</li>
+                        <li><span class="notification-time">13:15</span> Backup process initiated</li>
+                        <li><span class="notification-time">12:30</span> New connection detected</li>
+                    </ul>
+                    <div class="notification-input">
+                        <span class="input-prompt">></span>
+                        <span class="input-text" id="typing-text">_</span>
+                    </div>
+                </div>
+                
+                <div class="panel-item">
+                    <h3>USER AUTHENTICATION</h3>
+                    <div class="user-item">
+                        <div class="user-avatar">
+                            <div class="scan-effect horizontal"></div>
+                        </div>
+                        <div class="user-info">
+                            <div>User: <span id="current-user">Reckless101725</span></div>
+                            <div>Priority: <span class="highlight">Administrator</span></div>
+                            <div class="access-level">
+                                <span class="access-dot"></span>
+                                <span class="access-dot"></span>
+                                <span class="access-dot"></span>
+                                <span class="access-dot"></span>
+                                <span class="access-dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="biometric-scan">
+                        <div class="biometric-header">BIOMETRIC MATCH</div>
+                        <div class="fingerprint-container">
+                            <div class="fingerprint">
+                                <div class="scan-line-horizontal"></div>
+                            </div>
+                        </div>
+                        <div class="biometric-status">IDENTITY CONFIRMED</div>
+                    </div>
+                </div>
+                
+                <div class="panel-item">
+                    <h3>ENVIRONMENT ANALYSIS</h3>
+                    <div class="env-data">
+                        <div class="env-item">
+                            <div class="env-label">TEMPERATURE</div>
+                            <div class="env-value" id="env-temp">22.4°C</div>
+                            <div class="env-graph">
+                                <div class="graph-line"></div>
+                            </div>
+                        </div>
+                        <div class="env-item">
+                            <div class="env-label">HUMIDITY</div>
+                            <div class="env-value" id="env-humidity">45%</div>
+                            <div class="env-graph">
+                                <div class="graph-line"></div>
+                            </div>
+                        </div>
+                        <div class="env-item">
+                            <div class="env-label">PRESSURE</div>
+                            <div class="env-value" id="env-pressure">1013 hPa</div>
+                            <div class="env-graph">
+                                <div class="graph-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scan-radar">
+                        <div class="radar-sweep"></div>
+                        <div class="radar-dot" style="top:30%; left:60%"></div>
+                        <div class="radar-dot" style="top:70%; left:20%"></div>
+                        <div class="radar-dot" style="top:40%; left:80%"></div>
+                    </div>
+                </div>
+                
+                <div class="panel-item">
+                    <h3>GLOBAL MONITORING</h3>
+                    <div class="globe-container">
+                        <div class="globe">
+                            <div class="globe-grid"></div>
+                            <div class="globe-marker" style="top:30%; left:40%">
+                                <div class="marker-ping"></div>
+                            </div>
+                            <div class="globe-marker" style="top:60%; left:70%">
+                                <div class="marker-ping"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coordinates">LAT: 34.052235 LON: -118.243683</div>
+                </div>
+            </div>
+        </main>
+        
+        <div class="bottom-bar">
+            <div class="bottom-item">STARK INDUSTRIES © 2025</div>
+            <div class="bottom-item" id="system-status">JARVIS OPERATING SYSTEM v9.3.5</div>
+            <div class="bottom-item">SECURE CONNECTION <span class="secure-status">ACTIVE</span></div>
+        </div>
+
+        <div class="overlay-grid">
+            <div class="grid-lines horizontal"></div>
+            <div class="grid-lines vertical"></div>
+        </div>
+
+        <div class="corner-accents">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+        </div>
+        
+        <div class="hexagon-overlay">
+            <div class="hexagon-grid"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
