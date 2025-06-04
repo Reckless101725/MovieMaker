@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Systems Interface</title>
+    <link rel="stylesheet" href="systems-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="background-elements">
+            <div class="data-stream" id="data-stream-1"></div>
+            <div class="data-stream" id="data-stream-2"></div>
+            <div class="data-blocks">
+                <div class="data-block"></div>
+                <div class="data-block"></div>
+                <div class="data-block"></div>
+            </div>
+            <div class="binary-rain" id="binary-rain"></div>
+        </div>
+
+        <header>
+            <div class="top-bar">
+                <div class="logo">STARK INDUSTRIES</div>
+                <div class="navigation">
+                    <span class="nav-item" onclick="location.href='/rohhanindex.html'">DASHBOARD</span>
+                    <span class="nav-item active">SYSTEMS</span>
+                    <span class="nav-item">ANALYTICS</span>
+                    <span class="nav-item">CONTROL</span>
+                    <span class="nav-item">SECURITY</span>
+                </div>
+                <div class="status">
+                    <div class="status-item" id="jarvis-status">JARVIS OS v9.3.5</div>
+                    <div class="status-item" id="current-time">2025-06-04 07:45:45</div>
+                </div>
+            </div>
+            <div class="sub-nav">
+                <div class="user-badge">
+                    <div class="user-avatar"></div>
+                    <div class="user-info">
+                        <div class="user-name">Rohaneke1</div>
+                        <div class="user-role">ADMINISTRATOR</div>
+                    </div>
+                </div>
+                <div class="system-tabs">
+                    <div class="tab active" data-tab="infrastructure">INFRASTRUCTURE</div>
+                    <div class="tab" data-tab="hardware">HARDWARE</div>
+                    <div class="tab" data-tab="network">NETWORK</div>
+                    <div class="tab" data-tab="security">SECURITY</div>
+                </div>
+                <div class="system-status-indicator">
+                    <div class="indicator-dot pulse-green"></div>
+                    <span>ALL SYSTEMS OPERATIONAL</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="tab-content infrastructure active" id="infrastructure-tab">
+                <div class="grid-layout">
+                    <div class="panel-item wide">
+                        <h3>SYSTEM ARCHITECTURE OVERVIEW</h3>
+                        <div class="architecture-diagram">
+                            <div class="node central-node">
+                                <div class="node-pulse"></div>
+                                <span>CENTRAL CORE</span>
+                            </div>
+                            <div class="connector" id="connector-1"></div>
+                            <div class="connector" id="connector-2"></div>
+                            <div class="connector" id="connector-3"></div>
+                            <div class="connector" id="connector-4"></div>
+                            <div class="node" id="node-1">
+                                <div class="node-icon server-icon"></div>
+                                <span>SERVERS</span>
+                            </div>
+                            <div class="node" id="node-2">
+                                <div class="node-icon storage-icon"></div>
+                                <span>STORAGE</span>
+                            </div>
+                            <div class="node" id="node-3">
+                                <div class="node-icon network-icon"></div>
+                                <span>NETWORK</span>
+                            </div>
+                            <div class="node" id="node-4">
+                                <div class="node-icon security-icon"></div>
+                                <span>SECURITY</span>
+                            </div>
+                            <div class="data-packet" id="packet-1"></div>
+                            <div class="data-packet" id="packet-2"></div>
+                            <div class="data-packet" id="packet-3"></div>
+                            <div class="data-packet" id="packet-4"></div>
+                        </div>
+                        <div class="scan-line"></div>
+                    </div>
+                    
+                    <div class="panel-item">
+                        <h3>SERVER CLUSTER STATUS</h3>
+                        <div class="server-grid">
+                            <div class="server-unit operational">
+                                <div class="server-lights">
+                                    <div class="light blink"></div>
+                                    <div class="light"></div>
+                                </div>
+                                <div class="server-id">SRV-001</div>
+                                <div class="server-load-bar">
+                                    <div class="load-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            <div class="server-unit operational">
+                                <div class="server-lights">
+                                    <div class="light blink"></div>
+                                    <div class="light"></div>
+                                </div>
+                                <div class="server-id">SRV-002</div>
+                                <div class="server-load-bar">
+                                    <div class="load-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div class="server-unit operational">
+                                <div class="server-lights">
+                                    <div class="light blink"></div>
+                                    <div class="light"></div>
+                                </div>
+                                <div class="server-id">SRV-003</div>
+                                <div class="server-load-bar">
+                                    <div class="load-fill" style="width: 42%"></div>
+                                </div>
+                            </div>
+                            <div class="server-unit warning">
+                                <div class="server-lights">
+                                    <div class="light blink-warning"></div>
+                                    <div class="light"></div>
+                                </div>
+                                <div class="server-id">SRV-004</div>
+                                <div class="server-load-bar">
+                                    <div class="load-fill warning" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="server-unit operational">
+                                <div class="server-lights">
+                                    <div class="light blink"></div>
+                                    <div class="light"></div>
+                                </div>
+                                <div class="server-id">SRV-005</div>
+                                <div class="server-load-bar">
+                                    <div class="load-fill" style="width: 57%"></div>
+                                </div>
+                            </div>
+                            <div class="server-unit operational">
+                                <div class="server-lights">
+                                    <div class="light blink"></div>
+                                    <div class="light"></div>
+                                </div>
+                                <div class="server-id">SRV-006</div>
+                                <div class="server-load-bar">
+                                    <div class="load-fill" style="width: 61%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cluster-metrics">
+                            <div class="metric">
+                                <div class="metric-label">CPU LOAD AVG</div>
+                                <div class="metric-value">65.8%</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">MEMORY USAGE</div>
+                                <div class="metric-value">58.2%</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-label">TEMPERATURE</div>
+                                <div class="metric-value">42.3°C</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-item">
+                        <h3>STORAGE UNITS</h3>
+                        <div class="storage-units">
+                            <div class="storage-unit">
+                                <div class="storage-header">
+                                    <div class="storage-label">PRIMARY ARRAY</div>
+                                    <div class="storage-status operational">ONLINE</div>
+                                </div>
+                                <div class="storage-capacity">
+                                    <div class="capacity-segments">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                    </div>
+                                    <div class="storage-fill" style="width: 68%"></div>
+                                    <div class="capacity-text">
+                                        <span>68% OF 800 TB</span>
+                                    </div>
+                                </div>
+                                <div class="storage-stats">
+                                    <div class="stat">
+                                        <span class="stat-name">READ</span>
+                                        <span class="stat-value">324 MB/s</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-name">WRITE</span>
+                                        <span class="stat-value">156 MB/s</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="storage-unit">
+                                <div class="storage-header">
+                                    <div class="storage-label">BACKUP ARRAY</div>
+                                    <div class="storage-status operational">ONLINE</div>
+                                </div>
+                                <div class="storage-capacity">
+                                    <div class="capacity-segments">
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                        <div class="segment"></div>
+                                    </div>
+                                    <div class="storage-fill" style="width: 42%"></div>
+                                    <div class="capacity-text">
+                                        <span>42% OF 1.2 PB</span>
+                                    </div>
+                                </div>
+                                <div class="storage-stats">
+                                    <div class="stat">
+                                        <span class="stat-name">READ</span>
+                                        <span class="stat-value">58 MB/s</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-name">WRITE</span>
+                                        <span class="stat-value">215 MB/s</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-item">
+                        <h3>POWER MANAGEMENT</h3>
+                        <div class="power-graph">
+                            <canvas id="power-chart"></canvas>
+                        </div>
+                        <div class="power-stats">
+                            <div class="power-indicator">
+                                <div class="power-circle">
+                                    <svg viewBox="0 0 100 100">
+                                        <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                                        <circle class="circle-fill" cx="50" cy="50" r="45" stroke-dasharray="282.74" stroke-dashoffset="56.55"></circle>
+                                        <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" class="circle-text">80%</text>
+                                    </svg>
+                                </div>
+                                <div class="power-label">EFFICIENCY</div>
+                            </div>
+                            <div class="power-details">
+                                <div class="power-detail">
+                                    <span class="detail-label">DRAW</span>
+                                    <span class="detail-value">145 kW</span>
+                                </div>
+                                <div class="power-detail">
+                                    <span class="detail-label">BACKUP</span>
+                                    <span class="detail-value">CHARGED</span>
+                                </div>
+                                <div class="power-detail">
+                                    <span class="detail-label">ARC REACTOR</span>
+                                    <span class="detail-value">STABLE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-item wide">
+                        <h3>SYSTEM HEALTH MONITORING</h3>
+                        <div class="health-grid">
+                            <div class="health-item">
+                                <div class="health-header">CPU TEMPERATURE</div>
+                                <div class="health-chart">
+                                    <canvas id="cpu-temp-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-header">MEMORY USAGE</div>
+                                <div class="health-chart">
+                                    <canvas id="memory-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-header">NETWORK THROUGHPUT</div>
+                                <div class="health-chart">
+                                    <canvas id="network-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="health-item">
+                                <div class="health-header">DISK I/O</div>
+                                <div class="health-chart">
+                                    <canvas id="disk-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content hardware" id="hardware-tab">
+                <div class="grid-layout">
+                    <div class="panel-item wide tall">
+                        <h3>HARDWARE SCHEMATIC</h3>
+                        <div class="hardware-schematic">
+                            <div class="schematic-container">
+                                <div class="scan-effect horizontal"></div>
+                                <div class="component cpu">
+                                    <div class="component-label">CPU CLUSTER</div>
+                                </div>
+                                <div class="component memory">
+                                    <div class="component-label">MEMORY BANKS</div>
+                                </div>
+                                <div class="component storage">
+                                    <div class="component-label">STORAGE ARRAY</div>
+                                </div>
+                                <div class="component power">
+                                    <div class="component-label">POWER SUPPLY</div>
+                                </div>
+                                <div class="component network">
+                                    <div class="component-label">NETWORK INTERFACE</div>
+                                </div>
+                                <div class="connector-line horizontal" id="conn-h-1"></div>
+                                <div class="connector-line horizontal" id="conn-h-2"></div>
+                                <div class="connector-line vertical" id="conn-v-1"></div>
+                                <div class="connector-line vertical" id="conn-v-2"></div>
+                                <div class="connector-line vertical" id="conn-v-3"></div>
+                                <div class="data-flow" id="flow-1"></div>
+                                <div class="data-flow" id="flow-2"></div>
+                                <div class="data-flow" id="flow-3"></div>
+                            </div>
+                            <div class="component-details">
+                                <h4>COMPONENT DETAILS</h4>
+                                <div class="component-info active" id="cpu-details">
+                                    <div class="detail-header">CPU CLUSTER</div>
+                                    <div class="detail-specs">
+                                        <div class="spec-item">
+                                            <span class="spec-name">MODEL</span>
+                                            <span class="spec-value">STARK QUANTUM X9</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-name">CORES</span>
+                                            <span class="spec-value">128</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-name">CLOCK</span>
+                                            <span class="spec-value">4.8 GHz</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-name">TEMPERATURE</span>
+                                            <span class="spec-value">38.2°C</span>
+                                        </div>
+                                        <div class="spec-item">
+                                            <span class="spec-name">STATUS</span>
+                                            <span class="spec-value operational">OPERATIONAL</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-item">
+                        <h3>PROCESSING UNITS</h3>
+                        <div class="processing-units">
+                            <div class="unit-graph">
+                                <div class="graph-bar">
+                                    <div class="bar-fill" style="height:75%"></div>
+                                    <div class="bar-label">CPU 1</div>
+                                </div>
+                                <div class="graph-bar">
+                                    <div class="bar-fill" style="height:62%"></div>
+                                    <div class="bar-label">CPU 2</div>
+                                </div>
+                                <div class="graph-bar">
+                                    <div class="bar-fill" style="height:88%"></div>
+                                    <div class="bar-label">CPU 3</div>
+                                </div>
+                                <div class="graph-bar">
+                                    <div class="bar-fill" style="height:45%"></div>
+                                    <div class="bar-label">CPU 4</div>
+                                </div>
+                                <div class="graph-bar">
+                                    <div class="bar-fill warning" style="height:90%"></div>
+                                    <div class="bar-label">CPU 5</div>
+                                </div>
+                                <div class="graph-bar">
+                                    <div class="bar-fill" style="height:58%"></div>
+                                    <div class="bar-label">CPU 6</div>
+                                </div>
+                            </div>
+                            <div class="unit-stats">
+                                <div class="unit-stat">
+                                    <div class="stat-label">AVG LOAD</div>
+                                    <div class="stat-value">69.7%</div>
+                                </div>
+                                <div class="unit-stat">
+                                    <div class="stat-label">PROCESSES</div>
+                                    <div class="stat-value">3,428</div>
+                                </div>
+                                <div class="unit-stat">
+                                    <div class="stat-label">THREADS</div>
+                                    <div class="stat-value">12,856</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-item">
+                        <h3>MEMORY ALLOCATION</h3>
+                        <div class="memory-map">
+                            <div class="memory-blocks">
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block used"></div>
+                                <div class="memory-block free"></div>
+                                <div class="memory-block used"></div>
+                            </div>
+                            <div class="memory-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color used"></div>
+                                    <div class="legend-text">ALLOCATED</div>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color free"></div>
+                                    <div class="legend-text">FREE</div>
+                                </div>
+                            </div>
+                            <div class="memory-stats">
+                                <div class="memory-stat">
+                                    <span class="stat-label">TOTAL</span>
+                                    <span class="stat-value">2,048 GB</span>
+                                </div>
+                                <div class="memory-stat">
+                                    <span class="stat-label">USED</span>
+                                    <span class="stat-value">1,367 GB</span>
+                                </div>
+                                <div class="memory-stat">
+                                    <span class="stat-label">FREE</span>
+                                    <span class="stat-value">681 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-item">
+                        <h3>THERMAL MONITORING</h3>
+                        <div class="thermal-view">
+                            <div class="thermal-map">
+                                <div class="thermal-gradient"></div>
+                                <div class="thermal-hotspot" style="top:35%; left:25%"></div>
+                                <div class="thermal-hotspot" style="top:65%; left:70%"></div>
+                                <div class="scan-line vertical"></div>
+                            </div>
+                            <div class="thermal-scale">
+                                <div class="scale-gradient"></div>
+                                <div class="scale-marker" style="bottom:0%">20°C</div>
+                                <div class="scale-marker" style="bottom:50%">40°C</div>
+                                <div class="scale-marker" style="bottom:100%">60°C</div>
+                            </div>
+                        </div>
+                        <div class="thermal-alerts">
+                            <div class="alert-item">
+                                <span class="alert-icon"></span>
+                                <span class="alert-text">CPU 5 thermal warning at 58.2°C</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content network" id="network-tab">
+                <!-- Network tab content will be similar structure but with network-specific elements -->
+                <div class="coming-soon">
+                    <div class="soon-icon"></div>
+                    <div class="soon-text">NETWORK MODULE LOADING</div>
+                    <div class="loading-bar">
+                        <div class="loading-progress"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content security" id="security-tab">
+                <!-- Security tab content will be similar structure but with security-specific elements -->
+                <div class="coming-soon">
+                    <div class="soon-icon"></div>
+                    <div class="soon-text">SECURITY MODULE LOADING</div>
+                    <div class="loading-bar">
+                        <div class="loading-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <div class="bottom-bar">
+            <div class="bottom-item">STARK INDUSTRIES © 2025</div>
+            <div class="bottom-item" id="system-status">UPTIME: 124 DAYS 18:37:42</div>
+            <div class="bottom-item">SECURE CONNECTION <span class="secure-status">ACTIVE</span></div>
+        </div>
+
+        <div class="overlay-grid">
+            <div class="grid-lines horizontal"></div>
+            <div class="grid-lines vertical"></div>
+        </div>
+
+        <div class="corner-accents">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+        </div>
+        
+        <div class="hexagon-overlay">
+            <div class="hexagon-grid"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="systems-script.js"></script>
+</body>
+</html>
