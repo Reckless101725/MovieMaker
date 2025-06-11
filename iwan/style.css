@@ -96,6 +96,7 @@ body {
     border: 1px solid var(--neon-cyan);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .bar-fill {
@@ -105,6 +106,12 @@ body {
     background: var(--neon-cyan);
     box-shadow: 0 0 10px var(--neon-cyan);
     animation: barAnimation var(--duration) infinite ease-in-out;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bar-fill.flash-red {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
 }
 
 .left-bar .bar-fill {
