@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-cyan-400">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stark Security HUD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Orbitron', sans-serif;
+        background-image: radial-gradient(circle at center, #0d0d0d 0%, #000000 100%);
+      }
+      .neon {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+      .neon-red {
+        text-shadow: 0 0 5px #f00, 0 0 10px #f00, 0 0 20px #f00;
+      }
+    </style>
+  </head>
+  <body class="p-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Header -->
+      <div class="md:col-span-2 text-center text-4xl font-bold neon border border-cyan-500 p-4 rounded-xl">
+        SECURITY
+      </div>
+
+      <!-- Breach Detected -->
+      <div class="border border-red-500 text-red-500 p-4 rounded-xl">
+        <div class="text-2xl font-bold neon-red">BREACH DETECTED</div>
+        <div class="w-full mt-4 h-24 flex items-center justify-center">
+          <div class="rounded-full border-4 border-red-500 w-20 h-20 flex items-center justify-center">
+            <div class="w-12 h-1 bg-red-500 mb-1"></div>
+            <div class="w-10 h-1 bg-red-500 mb-1"></div>
+            <div class="w-8 h-1 bg-red-500"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Biometric -->
+      <div class="border border-cyan-500 p-4 rounded-xl">
+        <div class="text-2xl font-bold neon">BIOMETRIC</div>
+        <ul class="mt-4 space-y-2 text-orange-400">
+          <li>❤️ Heartbeat: Stable</li>
+          <li>🧠 Neural: Stable</li>
+        </ul>
+      </div>
+
+      <!-- Firewall -->
+      <div class="border border-cyan-500 p-4 rounded-xl">
+        <div class="text-xl font-bold neon">FIREWALL</div>
+        <div class="text-lg mt-2 text-cyan-300">ACTIVE</div>
+      </div>
+
+      <!-- Stark Tower -->
+      <div class="border border-red-500 p-4 rounded-xl">
+        <div class="text-xl font-bold neon-red">STARK TOWER:</div>
+        <div class="text-lg mt-2 text-red-400">SECURE</div>
+      </div>
+
+      <!-- Radar -->
+      <div class="md:col-span-2 border border-cyan-500 p-4 rounded-xl flex flex-col items-center">
+        <div class="text-xl font-bold mb-4 neon">THREAT DETECTION RADAR</div>
+        <div class="relative w-64 h-64 rounded-full border-2 border-cyan-500">
+          <div class="absolute inset-0 rounded-full border border-cyan-700 animate-pulse"></div>
+          <div class="absolute top-1/2 left-1/2 w-2 h-2 bg-cyan-400 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <!-- radar sweep line (static for now) -->
+          <div class="absolute top-0 left-1/2 w-0.5 h-full bg-cyan-300 transform -translate-x-1/2"></div>
+        </div>
+      </div>
+
+      <!-- Lockdown Button -->
+      <div class="md:col-span-2 text-center mt-6">
+        <button class="px-6 py-2 border border-cyan-500 text-cyan-300 rounded-xl hover:bg-cyan-500 hover:text-black transition">
+          LOCKDOWN MODE
+        </button>
+      </div>
+
+    </div>
+  </body>
+</html>
