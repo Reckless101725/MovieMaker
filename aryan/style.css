@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at center, #001e3c, #000);
+    color: #0ff;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    background-color: #000;
+    color: #0ff;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #0ff;
+    box-shadow: 0 0 15px #00ffff55;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .imgbox {
+    max-width: 180px;
+    border: 2px solid #0ff;
+    padding: 0.5rem;
+    background: rgba(0, 255, 255, 0.06);
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .imgbox:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #0ff;
+  }
+
+  .info {
+    grid-column: span 3;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #0ff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: left;
+    font-size: 1.1rem;
+    box-shadow: 0 0 25px #00ffff99;
+    width: 65%;
+    color: #fff;
+    backdrop-filter: blur(8px);
+    animation: pulse-glow 3s infinite alternate;
+  }
+
+  .info span {
+    display: block;
+    margin: 0.4rem 0;
+  }
+
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 20px #00ffff44; }
+    100% { box-shadow: 0 0 35px #00ffffaa; }
+  }
+
+  .red { color: #ff4d4d; }
+  .green { color: #00ff99; }
+  .yellow { color: #ffcc00; }
+  .blue { color: #00ccff; }
+  .lime { color: #b6ff00; }
+
+  .zijknop {
+    position: absolute;
+    top: 30%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .cirkelbutton {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00d9ff, #003344);
+    box-shadow: 0 0 15px #00e5ff, inset 0 0 10px #002933;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .cirkelbutton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00ffff, inset 0 0 15px #003c4d;
+  }
+
+  .blauwstreep {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+ 
+  }
+
+  .content {
+    position: relative;
+  }
