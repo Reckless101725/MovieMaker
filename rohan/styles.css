@@ -261,13 +261,15 @@ body {
 /* Main Layout */
 main {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: minmax(300px, 1fr) minmax(400px, 2fr) minmax(300px, 1fr);
     gap: 1rem;
     padding: 1rem 0;
     flex: 1;
     position: relative;
     z-index: 5;
     min-height: 0;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .panel-item {
@@ -815,15 +817,16 @@ main {
 
 /* Floating Commands */
 .floating-commands {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .command {
@@ -1352,37 +1355,76 @@ main {
     100% { transform: scaleX(0); opacity: 0; }
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .container {
-        padding: 0.25rem;
+/* Responsive Styles - Simplified and consistent */
+@media (max-width: 1200px) {
+    main {
+        grid-template-columns: minmax(280px, 1fr) minmax(350px, 1.8fr) minmax(280px, 1fr);
+        gap: 0.75rem;
+        max-width: none;
     }
     
+    .container {
+        padding: 0.75rem;
+    }
+    
+    .reactor-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .cmd-console {
+        width: 300px;
+        height: 150px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 900px) {
     main {
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 1rem;
         padding: 0.5rem 0;
     }
     
     .left-panel, .right-panel {
-        order: 2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
     }
     
     .center-panel {
-        order: 1;
+        order: -1;
+    }
+    
+    .reactor-container {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .floating-commands {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+    .cmd-console {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .left-panel, .right-panel {
+        grid-template-columns: 1fr;
     }
     
     .reactor-container {
         width: 200px;
         height: 200px;
-    }
-    
-    .time-display {
-        font-size: 1rem;
-    }
-    
-    .cmd-console {
-        display: none;
     }
     
     .top-bar {
@@ -1406,35 +1448,19 @@ main {
         font-size: 0.7rem;
     }
     
-    .floating-commands {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin-top: 1rem;
-    }
-    
-    .command {
-        font-size: 0.7rem;
-        padding: 6px 12px;
-    }
-    
     .panel-item {
         padding: 0.75rem;
-    }
-    
-    .panel-item h3 {
-        font-size: 0.7rem;
-        margin-bottom: 0.75rem;
+        min-height: auto;
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 0.125rem;
+        padding: 0.25rem;
     }
     
     main {
-        gap: 0.25rem;
+        gap: 0.5rem;
         padding: 0.25rem 0;
     }
     
@@ -1444,7 +1470,7 @@ main {
     }
     
     .time-display {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     .greeting-text {
@@ -1465,20 +1491,11 @@ main {
     
     .panel-item {
         padding: 0.5rem;
-        min-height: 150px;
     }
     
     .panel-item h3 {
-        font-size: 0.6rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .resource-bar {
-        margin-bottom: 0.5rem;
-    }
-    
-    .resource-label, .resource-value {
         font-size: 0.7rem;
+        margin-bottom: 0.5rem;
     }
     
     .bottom-bar {
@@ -1489,139 +1506,26 @@ main {
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Remove all the conflicting media queries that cause jumping */
+/* Delete these sections from your original CSS: */
+/*
+@media (min-width: 769px) and (max-width: 1024px) { ... }
+@media (min-width: 1025px) and (max-width: 1280px) { ... }
+@media (min-width: 1281px) and (max-width: 1440px) { ... }
+@media (min-width: 1441px) { ... }
+@media (min-width: 1920px) { ... }
+*/
+
+/* Landscape orientation on mobile - simplified */
+@media (max-width: 900px) and (orientation: landscape) {
     main {
-        grid-template-columns: 0.8fr 1.4fr 0.8fr;
+        grid-template-columns: minmax(250px, 1fr) minmax(300px, 1.5fr) minmax(250px, 1fr);
         gap: 0.75rem;
-    }
-    
-    .reactor-container {
-        width: 220px;
-        height: 220px;
-    }
-    
-    .time-display {
-        font-size: 1.1rem;
-    }
-    
-    .cmd-console {
-        width: 300px;
-        height: 150px;
-        font-size: 10px;
-    }
-    
-    .container {
-        padding: 0.75rem;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-    main {
-        grid-template-columns: 1fr 1.5fr 1fr;
-    }
-    
-    .reactor-container {
-        width: 250px;
-        height: 250px;
-    }
-    
-    .time-display {
-        font-size: 1.2rem;
-    }
-    
-    .cmd-console {
-        width: 350px;
-        height: 175px;
-    }
-}
-
-@media (min-width: 1281px) and (max-width: 1440px) {
-    .container {
-        padding: 0.75rem;
-    }
-    
-    .reactor-container {
-        width: 280px;
-        height: 280px;
-    }
-}
-
-@media (min-width: 1441px) {
-    .container {
-        max-width: none;
-        padding: 1rem;
-    }
-    
-    main {
-        grid-template-columns: 1fr 2.2fr 1fr;
-        gap: 1.5rem;
-    }
-    
-    .reactor-container {
-        width: 320px;
-        height: 320px;
-    }
-    
-    .cmd-console {
-        width: 450px;
-        height: 220px;
-        font-size: 13px;
-    }
-    
-    .time-display {
-        font-size: 1.6rem;
-    }
-}
-
-/* Ultra-wide screen support */
-@media (min-width: 1920px) {
-    main {
-        grid-template-columns: 1fr 2fr 1fr;
-        max-width: 1800px;
-        margin: 0 auto;
-    }
-    
-    .reactor-container {
-        width: 350px;
-        height: 350px;
-    }
-}
-
-/* High DPI / Retina display adjustments */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .panel-item {
-        border-width: 0.5px;
-    }
-    
-    .corner {
-        border-width: 1px;
-    }
-    
-    .grid-lines.horizontal {
-        background-size: 100% 60px;
-    }
-    
-    .grid-lines.vertical {
-        background-size: 60px 100%;
-    }
-}
-
-/* Landscape orientation on mobile */
-@media (max-width: 1024px) and (orientation: landscape) {
-    main {
-        grid-template-columns: 1fr 1.2fr 1fr;
-        gap: 0.5rem;
     }
     
     .reactor-container {
         width: 180px;
         height: 180px;
-    }
-    
-    .floating-commands {
-        position: static;
-        transform: none;
-        margin-top: 0.5rem;
     }
     
     .voice-wave {
@@ -1631,98 +1535,48 @@ main {
     .wave-container {
         height: 20px;
     }
-    
-    .jarvis-listening {
-        font-size: 0.7rem;
-    }
 }
 
-/* Portrait orientation on tablets */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    main {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        gap: 1rem;
-    }
-    
-    .center-panel {
-        order: 1;
-    }
-    
-    .left-panel, .right-panel {
-        order: 2;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-    
-    .reactor-container {
-        width: 250px;
-        height: 250px;
-    }
+/* Container constraints to prevent extreme stretching */
+.container {
+    max-width: 100vw;
+    min-width: 320px;
+    overflow-x: hidden;
 }
 
-/* Auto-scale for very small screens */
-@media (max-width: 320px) {
-    html {
-        font-size: 14px;
-    }
-    
-    .container {
-        padding: 0.125rem;
-    }
-    
-    .reactor-container {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .time-display {
-        font-size: 0.8rem;
-    }
-    
-    .greeting-text {
-        font-size: 0.9rem;
-    }
-    
-    .nav-item {
-        font-size: 0.5rem;
-    }
-    
-    .panel-item {
-        padding: 0.25rem;
-        min-height: 120px;
-    }
+/* Fixed positioning for floating elements */
+.floating-commands {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-/* Fullscreen utilities */
-.fullscreen-container {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 9999 !important;
-    overflow: hidden !important;
+/* Prevent layout shifts from animations */
+.data-block {
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-/* Print styles */
-@media print {
-    .cmd-console,
-    .floating-commands,
-    .corner-accents,
-    .overlay-grid,
-    .hexagon-overlay {
-        display: none !important;
-    }
-    
-    .container {
-        background: white !important;
-        color: black !important;
-    }
-    
-    .panel-item {
-        border: 1px solid black !important;
-        background: white !important;
+.reactor-ring {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Stabilize command positioning */
+@media (min-width: 901px) {
+    .floating-commands {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        margin-top: 0;
     }
 }
