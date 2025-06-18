@@ -9,6 +9,14 @@ class JARVISInterface {
             power: { current: 98.7, target: 98.7 }
         };
         
+        // Add network stats with smooth interpolation
+        this.networkStats = {
+            packets: 2048,
+            bandwidth: 11.7,
+            packetTarget: 2048,
+            bandwidthTarget: 11.7
+        };
+        
         this.networkData = [];
         this.animationFrames = {};
         this.audioContext = null;
@@ -96,7 +104,7 @@ class JARVISInterface {
         
         // Generate initial network data
         for (let i = 0; i < 50; i++) {
-            this.networkData.push(Math.random() * 100);
+            this.networkData.push(Math.random() * 10);
         }
         
         this.drawNetworkChart(ctx, canvas);
@@ -107,12 +115,22 @@ class JARVISInterface {
             this.networkData.push(Math.random() * 100);
             this.drawNetworkChart(ctx, canvas);
             
-            // Update network stats
+            // Update network stats smoothly
             const packetsEl = document.getElementById('packets-stat');
             const bandwidthEl = document.getElementById('bandwidth-stat');
-            
-            if (packetsEl) packetsEl.textContent = Math.floor(Math.random() * 2000 + 1000).toLocaleString();
-            if (bandwidthEl) bandwidthEl.textContent = `${(Math.random() * 50 + 10).toFixed(1)} MB/s`;
+
+            // Smooth interpolation instead of random jumps
+            this.networkStats.packets += (this.networkStats.packetTarget - this.networkStats.packets) * 0.1;
+            this.networkStats.bandwidth += (this.networkStats.bandwidthTarget - this.networkStats.bandwidth) * 0.1;
+
+            if (packetsEl) packetsEl.textContent = Math.floor(this.networkStats.packets).toLocaleString();
+            if (bandwidthEl) bandwidthEl.textContent = `${this.networkStats.bandwidth.toFixed(1)} MB/s`;
+
+            // Set new targets occasionally
+            if (Math.random() < 0.01) { // 1% chance each update
+                this.networkStats.packetTarget = Math.floor(Math.random() * 2000 + 1000);
+                this.networkStats.bandwidthTarget = Math.random() * 50 + 10;
+            }
         }, 100);
     }
 
@@ -336,7 +354,10 @@ class JARVISInterface {
             const power = 95 + Math.random() * 5;
             const temp = 28 + Math.random() * 5;
             
-            if (powerOutput) powerOutput.textContent = `POWER OUTPUT: ${power.toFixed(1)}%`;
+            const powerOutput = document.getElementById('power-output');
+            const tempValue = document.getElementById('temp-value');
+            
+            if (powerOutput) powerOutput.textContent = `${power.toFixed(1)}%`;
             if (tempValue) tempValue.textContent = `${temp.toFixed(1)}°C`;
         }, 2000);
     }
